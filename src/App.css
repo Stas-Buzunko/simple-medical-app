@@ -1,0 +1,10 @@
+.screen {
+  background-color: burlywood;
+  height: 100vh;
+}
+
+.category {
+  margin: 10px;
+  width: 100%;
+  min-height: 40px;
+}
