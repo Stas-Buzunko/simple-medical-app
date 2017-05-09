@@ -1,17 +1,22 @@
 import React from 'react'
+import { Button } from 'react-bootstrap'
 
 export default props => {
   return (
-    <div className="screen container">
-      <div>Tell me whats wrong (pick one)</div>
-      <div className="items">
-        <div className="item"><button className="button" onClick={() => {props.history.push('sore-throat')}}>Sore Throat</button></div>
-        <div className="item"><button className="button">Fever</button></div>
-        <div className="item"><button className="button">Stress</button></div>
-        <div className="item"><button className="button">Stomachache</button></div>
-        <div className="item"><button className="button">Joint Pain</button></div>
-      </div>
-      first screen
-    </div>
+		<div className="row">
+	    <div className="col-xs-12 col-sm-12 col-md-4">
+	      <div>
+	      	<p className="text-primary"> Tell me whats wrong </p> 
+	      	<p className="text"> (pick one)</p>
+	      </div>
+	      <div>
+	        <div><Button bsStyle="primary" onClick={() => {props.history.push('sore-throat')}}>Sore Throat</Button></div>
+	        <div><Button bsStyle="info">Fever</Button></div>
+	        <div><Button bsStyle="warning">Stress</Button></div>
+	        <div><Button bsStyle="success">Stomachache</Button></div>
+	        <div><Button bsStyle="danger">Joint Pain</Button></div>
+	      </div>
+	    </div>
+	 </div>
   )
 }
