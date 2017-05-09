@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
 import FirstScreen from './FirstScreen'
 import SecondScreen from './SecondScreen'
+import ResultScreen from './ResultScreen'
 import '../App.css';
 
 export default class App extends Component {
@@ -10,17 +11,24 @@ export default class App extends Component {
 
     this.state = {
       points: 0,
-      buttonsChecked: [0, 0, 0, 0, 0],
+      buttonsChecked: [null, null, null, null, null],
     }
   }
 
-  radioClicked = (e) => {
+  radioClicked(question, value){
+
+  	const currentAnswers = this.state.buttonsChecked.slice()
+  	currentAnswers[question] = value
+
+  	this.setState({
+  		buttonsChecked: currentAnswers
+  	})
 
   }
 
   render() {
     return (
-      <div className="App container">
+      <div className="container-fluid">
         <BrowserRouter>
           <Switch>
             <Route
@@ -38,7 +46,17 @@ export default class App extends Component {
               render={props => (
                 <SecondScreen
                   radios={this.state.buttonsChecked}
-                  onClick={this.radioClicked}
+                  onClick={this.radioClicked.bind(this)}
+                  {...props}
+                />
+              )}
+            />
+            <Route
+              exact
+              path="/result-throat"
+              render={props => (
+                <ResultScreen
+                	radios={this.state.buttonsChecked}
                   {...props}
                 />
               )}
