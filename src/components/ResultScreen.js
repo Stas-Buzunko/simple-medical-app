@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, ButtonGroup, Panel } from 'react-bootstrap';
+import { Button, PageHeader } from 'react-bootstrap';
 
 export default (props) => {
 
@@ -25,24 +25,17 @@ export default (props) => {
 	}else if(sum>=4){
 		result = {percent: "51 - 53", advise: "Expect to get a rapid strep test and strep throat culture"}
 	}
-		
 
   return (
-    <div className="col-xs-12 col-sm-12 col-md-4">
-      <Panel className="panel-top top">
-      	<p className="text-primary">Your risk of having strep throat is:</p>
-      	<Panel className="panel-per">
-	      	<p className="text-per"> {result.percent} % </p>
-	      </Panel>
-	      <Panel className="panel-adv">
-	      	<p className="text-primary"> {result.advise} </p>
-	      </Panel>
-	      <p className="text-warning">Make an appointment with Student Health?</p>
-	      <ButtonGroup>
-			    <Button bsStyle="info">Yes</Button>
-				  <Button bsStyle="info">No</Button>
-			  </ButtonGroup>
-      </Panel>
+    <div className="col-xs-12 col-sm-12 col-md-4 center-block">
+    	<PageHeader style={{textAlign: 'center', color: '#337ab7'}}>Your risk of having strep throat is:</PageHeader>
+      <div style={{textAlign: 'center'}}>
+        <h1><strong>{result.percent} %</strong></h1>
+      </div>
+      <p className="text-primary" style={{fontSize: '22px'}}> {result.advise} </p>
+      <p className="text-warning">Make an appointment with Student Health?</p>
+	    <Button bsStyle="success" bsSize="large">Yes</Button>
+		  <Button bsStyle="warning" bsSize="large">No</Button>
     </div>
   )
 }

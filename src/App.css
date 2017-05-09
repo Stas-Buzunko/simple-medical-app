@@ -1,3 +1,33 @@
+.center-block {
+  float: none !important;
+}
+
+.btn-container {
+  height: 20%;
+  padding: 1rem 0;
+}
+
+.question-container {
+  height: 20%;
+}
+
+.btn-container .btn {
+  height: 100%;
+}
+
+.question-text {
+  vertical-align: middle !important;
+}
+
+.btn-group, .btn-group-vertical {
+  width: 100%;
+  height: 80%;
+}
+
+.table {
+  margin-bottom: 0 !important;
+}
+
 .screen {
   background-color: burlywood;
   height: 97vh;
@@ -18,7 +48,7 @@
   margin-top: 3px;
 }
 
-.btn-default{
+.btn-default {
 	width: 5%;
 	border-color: #ffffff;
 	background-color: #ffffff;
@@ -48,7 +78,7 @@
 	margin-top: 15px;
 }
 
-.text-primary{
+.text-primary {
 	font-size: 18px;
 	font-weight: 600;
 	text-align: center;
@@ -56,7 +86,7 @@
 	margin-bottom: 1px;
 }
 
-.text-warning{
+.text-warning {
 	font-size: 18px;
 	font-weight: 600;
 	text-align: center;
@@ -66,7 +96,7 @@
 	margin-top: 15px;
 }
 
-.text-per{
+.text-per {
 	font-size: 18px;
 	font-weight: 600;
 	text-align: center;
@@ -74,39 +104,24 @@
 	margin-bottom: 3px;
 }
 
-.text{
+.text {
 	text-align: center;
 	margin-bottom: 1px;
 }
 
-.panel{
+.panel {
   margin-bottom: 1px;
 }
 
-.panel-body{
+.panel-body {
 	padding: 2px
 }
 
-.btn-group{
-	padding-left: 5px;
+.td-yes-no {
+	width: 40%;
+  padding: 0;
 }
-
-.td-yes-no{
-	width: 30%;
-	/*display: inline;*/
-}
-
 
 th, td {
     padding: 15px;
 }
-
-/*.btn-success{
-	background-color: #ff66ff;
-	border-color: #ff55ff;
-}*/
-
-/*.button {
-  width: 100%;
-  min-height: 40px;
-}*/
