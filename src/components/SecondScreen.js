@@ -1,19 +1,19 @@
 import React from 'react';
-import { Button, ButtonGroup, OverlayTrigger, Popover, ButtonToolbar } from 'react-bootstrap';
+import { Button, ButtonGroup, OverlayTrigger, Popover } from 'react-bootstrap';
 import img1 from '../img/Picture 1.JPG';
 import img2 from '../img/Picture 2.jpg';
 
-export default (props) => {
+export default ({onClick, history, radios}) => {
 	
 	const infoFirst = (
 	  <Popover id="popover-trigger-focus">
-	    <img className="col-xs-12 col-sm-12 col-md-8" src={img1}/>
+	    <img className="col-xs-12 col-sm-12 col-md-8" src={img1} alt="" />
 	  </Popover>
 	)
 
 	const infoSecond = (
 	  <Popover id="popover-trigger-focus">
-	    <img className="col-xs-12 col-sm-12 col-md-8" src={img2}/>
+	    <img className="col-xs-12 col-sm-12 col-md-8" src={img2} alt="" />
 	  </Popover>
 	)
 
@@ -36,9 +36,9 @@ export default (props) => {
 					  </td>
 					  <td className="td-yes-no">
 				      <ButtonGroup vertical>
-							  <Button bsStyle="primary" bsSize="small" onClick={()=>props.onClick(0, 1)} active={props.radios[0]==1}>3 - 14 years</Button>
-							  <Button bsStyle="primary" bsSize="small" onClick={()=>props.onClick(0, 0)} active={props.radios[0]==0}>15 - 44 years</Button>
-							  <Button bsStyle="primary" bsSize="small" onClick={()=>props.onClick(0, 2)} active={props.radios[0]==2}>{'>'} 45 years</Button>
+							  <Button bsStyle="primary" bsSize="small" onClick={() => onClick(0, 1)} active={radios[0] ===1}>3 - 14 years</Button>
+							  <Button bsStyle="primary" bsSize="small" onClick={() => onClick(0, 0)} active={radios[0] === 0}>15 - 44 years</Button>
+							  <Button bsStyle="primary" bsSize="small" onClick={() => onClick(0, 2)} active={radios[0] === 2}>{'>'} 45 years</Button>
 						  </ButtonGroup>
 						</td>	
 					</tr>
@@ -51,8 +51,8 @@ export default (props) => {
 						</td>
 						<td className="td-yes-no">
 				      <ButtonGroup>
-						    <Button bsStyle="info" onClick={()=>props.onClick(1, 1)} active={props.radios[1]==1} style={customButtonStyle}>Yes</Button>
-							  <Button bsStyle="info" onClick={()=>props.onClick(1, 0)} active={props.radios[1]==0} style={customButtonStyle}>No</Button>
+						    <Button bsStyle="info" onClick={() => onClick(1, 1)} active={radios[1] === 1} style={customButtonStyle}>Yes</Button>
+							  <Button bsStyle="info" onClick={() => onClick(1, 0)} active={radios[1] === 0} style={customButtonStyle}>No</Button>
 						  </ButtonGroup> 
 			      </td>
 			    </tr>
@@ -65,8 +65,8 @@ export default (props) => {
 			    	</td>
 						<td>
 			        <ButtonGroup>
-						    <Button bsStyle="warning" onClick={()=>props.onClick(2, 1)} active={props.radios[2]==1} style={customButtonStyle}>Yes</Button>
-							  <Button bsStyle="warning" onClick={()=>props.onClick(2, 0)} active={props.radios[2]==0} style={customButtonStyle}>No</Button>
+						    <Button bsStyle="warning" onClick={() => onClick(2, 1)} active={radios[2] === 1} style={customButtonStyle}>Yes</Button>
+							  <Button bsStyle="warning" onClick={() => onClick(2, 0)} active={radios[2] === 0} style={customButtonStyle}>No</Button>
 						  </ButtonGroup>
 			      </td>
 			    </tr>
@@ -76,8 +76,8 @@ export default (props) => {
 			      </td>
 						<td>  
 			        <ButtonGroup>
-						    <Button bsStyle="success" onClick={()=>props.onClick(3, 1)} active={props.radios[3]==1} style={customButtonStyle}>Yes</Button>
-							  <Button bsStyle="success" onClick={()=>props.onClick(3, 0)} active={props.radios[3]==0} style={customButtonStyle}>No</Button>
+						    <Button bsStyle="success" onClick={() => onClick(3, 1)} active={radios[3] === 1} style={customButtonStyle}>Yes</Button>
+							  <Button bsStyle="success" onClick={() => onClick(3, 0)} active={radios[3] === 0} style={customButtonStyle}>No</Button>
 						  </ButtonGroup>
 			     	</td>
 			    </tr>
@@ -87,15 +87,15 @@ export default (props) => {
 	    			</td>
 					<td>
 		        <ButtonGroup>
-					    <Button bsStyle="danger" onClick={()=>props.onClick(4, 0)} active={props.radios[4]==0} style={customButtonStyle}>Yes</Button>
-						  <Button bsStyle="danger" onClick={()=>props.onClick(4, 1)} active={props.radios[4]==1} style={customButtonStyle}>No</Button>
+					    <Button bsStyle="danger" onClick={() => onClick(4, 0)} active={radios[4] === 0} style={customButtonStyle}>Yes</Button>
+						  <Button bsStyle="danger" onClick={() => onClick(4, 1)} active={radios[4] === 1} style={customButtonStyle}>No</Button>
 					  </ButtonGroup>
 	      	</td>
 			   </tr>
       	</tbody>
 			</table>
       <div className="row w-100 category" style={{height: '5%', width: '60%', margin: 'auto'}}>
-        <Button bsStyle="primary" bsSize="large" disabled={props.radios.includes(null)} onClick={() => {props.history.push('result-throat')}}>Fix me</Button>
+        <Button bsStyle="primary" bsSize="large" disabled={radios.includes(null)} onClick={() => history.push('result-throat')}>Fix me</Button>
       </div>
     </div>
   )

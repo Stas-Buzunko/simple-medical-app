@@ -1,28 +1,26 @@
 import React from 'react';
 import { Button, PageHeader } from 'react-bootstrap';
 
-export default (props) => {
-
-	let sum = 0
-	props.radios.forEach((question)=>{
-		if(question==2){
-			sum = sum - 1
-		}else{
-			sum = sum + question
-		}
-	})
+export default ({radios}) => {
+	const sum = radios.reduce((accumulator, currentValue) => {
+    if (currentValue === 2) {
+      return --accumulator
+    } else {
+      return accumulator += currentValue
+    }
+  }, 0)
 
 	let result = {}
 
-	if(sum<=0){
+	if(sum <= 0) {
 		result = {percent: "1 - 2.5", advise: "Expect to not get any tests or antibiotics"}
-	}else if(sum==1){
+	}else if(sum === 1) {
 		result = {percent: "5 - 10", advise: "There is a chance you may get a rapid strep throat test"}
-	}else if(sum==2){
+	}else if(sum === 2) {
 		result = {percent: "11 - 17", advise: "Expect to get a rapid strep test and strep throat culture"}
-	}else if(sum==3){
+	}else if(sum === 3) {
 		result = {percent: "28 - 35", advise: "Expect to get a rapid strep test and strep throat culture"}
-	}else if(sum>=4){
+	}else if(sum >= 4) {
 		result = {percent: "51 - 53", advise: "Expect to get a rapid strep test and strep throat culture"}
 	}
 

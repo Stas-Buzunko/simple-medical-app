@@ -16,8 +16,7 @@ export default class App extends Component {
     }
   }
 
-  radioClicked(question, value){
-
+  radioClicked = (question, value) => {
   	const currentAnswers = this.state.buttonsChecked.slice()
   	currentAnswers[question] = value
 
@@ -27,13 +26,15 @@ export default class App extends Component {
 
   }
 
-  changePage(){
+  changePage = () => {
   	this.setState({
   		loginPage: !this.state.loginPage
   	})
   }
 
   render() {
+    const { loginPage, buttonsChecked } = this.state
+
     return (
       <div className="container-fluid">
         <BrowserRouter>
@@ -43,8 +44,8 @@ export default class App extends Component {
               path="/"
               render={props => (
                 <FirstScreen
-                	loginPage={this.state.loginPage}
-                	changePage={this.changePage.bind(this)}
+                	loginPage={loginPage}
+                	changePage={this.changePage}
                   {...props}
                 />
               )}
@@ -54,8 +55,8 @@ export default class App extends Component {
               path="/sore-throat"
               render={props => (
                 <SecondScreen
-                  radios={this.state.buttonsChecked}
-                  onClick={this.radioClicked.bind(this)}
+                  radios={buttonsChecked}
+                  onClick={this.radioClicked}
                   {...props}
                 />
               )}
@@ -65,7 +66,7 @@ export default class App extends Component {
               path="/result-throat"
               render={props => (
                 <ResultScreen
-                	radios={this.state.buttonsChecked}
+                	radios={buttonsChecked}
                   {...props}
                 />
               )}
