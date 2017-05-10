@@ -10,6 +10,7 @@ export default class App extends Component {
     super(props)
 
     this.state = {
+    	loginPage: true,
       points: 0,
       buttonsChecked: [null, null, null, null, null],
     }
@@ -26,6 +27,12 @@ export default class App extends Component {
 
   }
 
+  changePage(){
+  	this.setState({
+  		loginPage: !this.state.loginPage
+  	})
+  }
+
   render() {
     return (
       <div className="container-fluid">
@@ -36,6 +43,8 @@ export default class App extends Component {
               path="/"
               render={props => (
                 <FirstScreen
+                	loginPage={this.state.loginPage}
+                	changePage={this.changePage.bind(this)}
                   {...props}
                 />
               )}
